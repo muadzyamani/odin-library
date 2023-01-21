@@ -1,0 +1,47 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.header .container {
+    /* font-family: 'Poppins', sans-serif; */
+    color: rgba(255, 255, 255, 0.879);
+    display: flex;
+    background-color: #161b22;
+    height: 5vh;
+    align-items: center;
+    padding: 20px 50px;
+    justify-content: space-between;
+}
+
+#log-in-button {
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #0d1117;
+    color: rgba(255, 255, 255, 0.879);
+    border-color: rgba(255, 255, 255, 0.416);
+}
+
+#log-in-button:hover {
+    border-color: rgba(255, 255, 255, 0.879);
+    cursor: pointer;
+}
+
+.main {
+    background-color: #0d1117;
+    height: 85vh;
+}
+
+.footer {
+    background-color: #0d1117;
+    height: 10vh;
+}
