@@ -2,6 +2,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    min-width: 1245px;
+}
+
 body {
     margin: 0;
     padding: 0;
