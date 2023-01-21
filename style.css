@@ -29,6 +29,7 @@ body {
     background-color: #0d1117;
     color: rgba(255, 255, 255, 0.879);
     border-color: rgba(255, 255, 255, 0.416);
+    transition: 0.15s ease-in-out;
 }
 
 #log-in-button:hover {
@@ -39,6 +40,39 @@ body {
 .main {
     background-color: #0d1117;
     height: 85vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.add-book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.879);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.416);
+    /* border-color: rgba(255, 255, 255, 0.416); */
+    /* border-radius: 8px; */
+    padding: 2% 0%;
+    margin: 1% 25%;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.879);
+}
+
+.input.button {
+    color: rgba(255, 255, 255, 0.879);
+    background-color: #238636;
+    transition: 0.15s ease-in-out;
+}
+
+.input.button:hover {
+    background-color: #238637c2;
+    cursor: pointer;
 }
 
 .footer {
