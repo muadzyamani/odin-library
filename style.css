@@ -55,8 +55,6 @@ body {
     align-items: center;
     color: rgba(255, 255, 255, 0.879);
     border-bottom: 1px solid rgba(255, 255, 255, 0.416);
-    /* border-color: rgba(255, 255, 255, 0.416); */
-    /* border-radius: 8px; */
     padding: 2% 0%;
     margin: 1% 25%;
 }
@@ -77,6 +75,66 @@ body {
 .input.button:hover {
     background-color: #238637c2;
     cursor: pointer;
+}
+
+.library-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2% 0%;
+    margin: 1% 25%;
+}
+
+.book-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px rgba(255, 255, 255, 0.416);
+    border-radius: 16px;
+    background-color: #161b22;
+    color: rgba(255, 255, 255, 0.879);
+    height: 150px;
+    margin-bottom: 3%;
+}
+
+.book-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+}
+
+.book-actions-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.action-button {
+    border: none;
+    border-radius: 8px;
+    width: 150px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.action-button:hover {
+    transition: 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+#read-button {
+    background-color: #ff9c9c;
+}
+
+#read-button:hover {
+    background-color: #ff9c9cd5;
+}
+
+#remove-button {
+    background-color: rgba(255, 255, 255, 0.879);
+}
+
+#remove-button:hover {
+    background-color: rgba(255, 255, 255, 0.741);
 }
 
 .footer {
