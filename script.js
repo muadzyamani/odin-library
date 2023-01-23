@@ -6,10 +6,11 @@ const addBookBtn = document.querySelector('.input.button')
 
 
 class Book {
-    constructor(title, author, pages) {
+    constructor(title, author, pages, isRead) {
         this.title = title;
         this.author = author;
         this.pages = pages;
+        this.isRead = isRead;
     }
 }
 
@@ -21,7 +22,7 @@ class Library {
     start() {
         form.addEventListener('submit', (event) => {
             event.preventDefault();
-            const book = new Book(title.value, author.value, pages.value);
+            const book = new Book(title.value, author.value, pages.value, false);
             
             this.addBook(book);
             this.displayBook();
