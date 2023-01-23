@@ -2,7 +2,7 @@ const form = document.querySelector('.add-book-form');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
-const addBookBtn = document.querySelector('.input.button')
+const addBookBtn = document.querySelector('.input.button');
 
 
 class Book {
@@ -20,12 +20,16 @@ class Library {
     }
 
     start() {
+        this.handleInput();
+    }
+
+    handleInput() {
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             const book = new Book(title.value, author.value, pages.value, false);
             
             this.addBook(book);
-            this.displayBook();
+            this.updateLibrary();
             this.clearInputBoxes();
         });
     }
@@ -34,7 +38,7 @@ class Library {
         this.books.push(book);
     }
 
-    displayBook() {
+    updateLibrary() {
         let libraryContainer = document.querySelector('.library-container')
         let bookContainer = document.createElement('div');
         bookContainer.classList.add('book-container');
