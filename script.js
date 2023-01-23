@@ -47,13 +47,17 @@ class Library {
                 <div class="book-pages">${pages.value} pages</div>
             </div>
             <div class="book-actions-container">
-                <button class="action-button" id="read-button">Not Read</button>
-                <button class="action-button" id="remove-button">Remove</button>
+                <button class="action-button read-button">Not Read</button>
+                <button class="action-button remove-button">Remove</button>
             </div>
         `;
 
         // Append the top level element to the Library Container
         libraryContainer.appendChild(bookContainer);
+    }
+
+    removeBook(book) {
+        this.books = this.books.filter(b => b !== book);
     }
 
     clearInputBoxes() {

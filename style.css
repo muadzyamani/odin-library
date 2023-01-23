@@ -127,19 +127,19 @@ body {
     cursor: pointer;
 }
 
-#read-button {
+.action-button.read-button {
     background-color: #ff9c9c;
 }
 
-#read-button:hover {
+.action-button.read-button:hover {
     background-color: #ff9c9cd5;
 }
 
-#remove-button {
+.action-button.remove-button {
     background-color: rgba(255, 255, 255, 0.879);
 }
 
-#remove-button:hover {
+.action-button.remove-button:hover {
     background-color: rgba(255, 255, 255, 0.741);
 }
 
