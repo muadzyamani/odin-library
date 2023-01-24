@@ -48,6 +48,18 @@ class UI {
         }
     }
 
+    static toggleReadStatus(element) {
+        if(element.classList.contains('read-button')) {
+            if (element.innerHTML === 'Not Read') {
+                element.innerHTML = 'Read';
+                element.style.background = '#9fff9c';
+            } else {
+                element.innerHTML = 'Not Read';
+                element.style.background = '#ff9c9c';
+            }
+        }
+    }
+
     static clearFields() {
         document.querySelector('#title').value = '';
         document.querySelector('#author').value = '';
@@ -66,8 +78,15 @@ class Library {
     }
 
     removeBook(id) {
-        const objWithIDIndex = this.books.findIndex((book) => book.id === id);
-        this.books.splice(objWithIDIndex, 1);
+        const bookIndex = this.books.findIndex((book) => book.id === id);
+        console.log(bookIndex); // index given is '-1', need to fix
+        this.books.splice(bookIndex, 1);
+    }
+
+    toggleReadStatus(id) {
+        console.log(id);
+        const bookIndex = this.books.findIndex((book) => book.id === id);
+        console.log(bookIndex);
     }
 }
 
@@ -106,5 +125,15 @@ document.querySelector('.library-container').addEventListener('click', (event) =
     UI.removeBook(event.target);
 
     // Remove book from Library
+    console.log(event.target.parentElement.parentElement.id)
     library.removeBook(event.target.parentElement.parentElement.id);
+});
+
+// Event: Read a Book
+document.querySelector('.library-container').addEventListener('click', (event) => {
+   // Toggle read book status
+   UI.toggleReadStatus(event.target);
+
+   // Toggle read book status in library (need to fix)
+   library.toggleReadStatus(event.target.parentElement.parentElement.id);
 });
