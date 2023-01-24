@@ -80,6 +80,7 @@ class Library {
 
     toggleReadStatus(id) {
         const bookIndex = this.books.findIndex((book) => parseFloat(book.id) === parseFloat(id));
+        this.books[bookIndex].isRead = !this.books[bookIndex].isRead;
     }
 }
 
@@ -126,7 +127,7 @@ function checkButtonPressed(event) {
         // Toggle read book status
         UI.toggleReadStatus(event.target);
 
-        // Toggle read book status in library (need to fix)
+        // Toggle read book status in library
         library.toggleReadStatus(event.target.parentElement.parentElement.id);
     }
 }
