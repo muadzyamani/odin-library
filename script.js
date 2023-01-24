@@ -43,20 +43,16 @@ class UI {
     }
 
     static removeBook(element) {
-        if(element.classList.contains('remove-button')) {
-            element.parentElement.parentElement.remove();
-        }
+        element.parentElement.parentElement.remove();
     }
 
     static toggleReadStatus(element) {
-        if(element.classList.contains('read-button')) {
-            if (element.innerHTML === 'Not Read') {
-                element.innerHTML = 'Read';
-                element.style.background = '#9fff9c';
-            } else {
-                element.innerHTML = 'Not Read';
-                element.style.background = '#ff9c9c';
-            }
+        if (element.innerHTML === 'Not Read') {
+            element.innerHTML = 'Read';
+            element.style.background = '#9fff9c';
+        } else {
+            element.innerHTML = 'Not Read';
+            element.style.background = '#ff9c9c';
         }
     }
 
@@ -78,15 +74,12 @@ class Library {
     }
 
     removeBook(id) {
-        const bookIndex = this.books.findIndex((book) => book.id === id);
-        console.log(bookIndex); // index given is '-1', need to fix
+        const bookIndex = this.books.findIndex((book) => parseFloat(book.id) === parseFloat(id));
         this.books.splice(bookIndex, 1);
     }
 
     toggleReadStatus(id) {
-        console.log(id);
-        const bookIndex = this.books.findIndex((book) => book.id === id);
-        console.log(bookIndex);
+        const bookIndex = this.books.findIndex((book) => parseFloat(book.id) === parseFloat(id));
     }
 }
 
@@ -119,21 +112,26 @@ document.querySelector('.add-book-form').addEventListener('submit', (event) => {
     UI.clearFields();
 });
 
-// Event: Remove a Book
+function checkButtonPressed(event) {
+    // Remove a Book
+    if (event.target.classList.contains('remove-button')) {
+        // Remove book from UI
+        UI.removeBook(event.target);
+
+        // Remove book from Library
+        library.removeBook(event.target.parentElement.parentElement.id);
+    } 
+    // Read a Book
+    else if (event.target.classList.contains('read-button')) {
+        // Toggle read book status
+        UI.toggleReadStatus(event.target);
+
+        // Toggle read book status in library (need to fix)
+        library.toggleReadStatus(event.target.parentElement.parentElement.id);
+    }
+}
+
+// Event: Check Book Action
 document.querySelector('.library-container').addEventListener('click', (event) => {
-    // Remove book from UI
-    UI.removeBook(event.target);
-
-    // Remove book from Library
-    console.log(event.target.parentElement.parentElement.id)
-    library.removeBook(event.target.parentElement.parentElement.id);
-});
-
-// Event: Read a Book
-document.querySelector('.library-container').addEventListener('click', (event) => {
-   // Toggle read book status
-   UI.toggleReadStatus(event.target);
-
-   // Toggle read book status in library (need to fix)
-   library.toggleReadStatus(event.target.parentElement.parentElement.id);
+    checkButtonPressed(event);
 });
