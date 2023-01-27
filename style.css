@@ -127,12 +127,20 @@ body {
     cursor: pointer;
 }
 
-.action-button.read-button {
+.action-button.not-read-button {
     background-color: #ff9c9c;
 }
 
-.action-button.read-button:hover {
+.action-button.not-read-button:hover {
     background-color: #ff9c9cd5;
+}
+
+.action-button.read-button {
+    background-color: #9fff9c;
+}
+
+.action-button.read-button:hover {
+    background-color: #9fff9cd9;
 }
 
 .action-button.remove-button {

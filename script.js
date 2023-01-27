@@ -34,7 +34,7 @@ class UI {
                 <div class="book-pages">${book.pages} pages</div>
             </div>
             <div class="book-actions-container">
-                <button class="action-button read-button">Not Read</button>
+                <button class="action-button not-read-button">Not Read</button>
                 <button class="action-button remove-button">Remove</button>
             </div>
         `;
@@ -49,10 +49,11 @@ class UI {
     static toggleReadStatus(element) {
         if (element.innerHTML === 'Not Read') {
             element.innerHTML = 'Read';
-            element.style.background = '#9fff9c';
+            element.className = 'action-button read-button';
+            
         } else {
             element.innerHTML = 'Not Read';
-            element.style.background = '#ff9c9c';
+            element.className = 'action-button not-read-button';
         }
     }
 
@@ -123,7 +124,7 @@ function checkButtonPressed(event) {
         library.removeBook(event.target.parentElement.parentElement.id);
     } 
     // Read a Book
-    else if (event.target.classList.contains('read-button')) {
+    else if (event.target.classList.contains('read-button') || event.target.classList.contains('not-read-button')) {
         // Toggle read book status
         UI.toggleReadStatus(event.target);
 
